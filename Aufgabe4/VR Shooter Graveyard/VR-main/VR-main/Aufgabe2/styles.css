@@ -1,0 +1,160 @@
+/* Container */
+.container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100vh;
+  margin-top: 100px;
+}
+
+/* Car representation */
+.car {
+  width: 200px;
+  height: 80px;
+  background-color: #3a84ff;
+  position: relative;
+  border-radius: 20px;
+  z-index: 10;
+}
+
+.roof {
+  content: "";
+  width: 120px;
+  height: 40px;
+  background-color: #3a84ff;
+  position: absolute;
+  top: -40px;
+  left: 40px;
+  border-radius: 20px 20px 0 0;
+  border-top: 2px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+}
+
+/* Wheels */
+.wheel {
+  width: 50px;
+  height: 50px;
+  background-color: #333;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -25px;
+}
+
+.front-wheel {
+  left: 20px;
+}
+
+.back-wheel {
+  right: 20px;
+}
+
+.rim {
+  width: 30px;
+  height: 30px;
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Headlight and taillight */
+.headlight {
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 40%;
+  left: -5px;
+}
+
+.taillight {
+  width: 10px;
+  height: 10px;
+  background-color: #ff3838;
+  border-radius: 50%;
+  position: absolute;
+  top: 40%;
+  right: -5px;
+}
+.car,
+.headlight,
+.taillight {
+  border: 2px solid black; /* This line adds a black stroke */
+}
+/* Road */
+.road {
+  width: 100%;
+  height: 40px;
+  background-color: gray;
+  position: relative;
+  margin-top: 100px; /* Space between car and road */
+  margin-left: -200px;
+}
+
+.markings {
+  width: 100%;
+  height: 2px;
+  background: repeating-linear-gradient(
+    to right,
+    white,
+    white 10px,
+    transparent 10px,
+    transparent 20px
+  );
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+/*Car animation*/
+@keyframes carMove {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(100vw - 235px));
+  }
+}
+
+.car-moving {
+  animation: carMove 5s ease-in-out forwards;
+}
+/* Styling for the "Auto fahren lassen" button */
+#startButton {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-family: sans-serif; /* Set the font-family to sans-serif */
+}
+
+/* Styling for the label and input */
+label {
+  font-weight: bold;
+  font-family: sans-serif; /* Set the font-family to sans-serif */
+}
+
+#timeInput {
+  width: 50px;
+  padding: 5px;
+  font-family: sans-serif; /* Set the font-family to sans-serif */
+}
+
+/* Styling for the "Seite auflösen" button */
+#clearButton {
+  background-color: #dc3545;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  font-family: sans-serif; /* Set the font-family to sans-serif */
+}
+#timeInput,
+#clearButton,
+#startButton {
+  border-radius: 5px;
+}

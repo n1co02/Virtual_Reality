@@ -1,0 +1,60 @@
+<!-- begin without click-->
+
+<svg
+  width="410"
+  height="100"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+>
+  <!-- Road -->
+  <line x1="0" y1="100" x2="400" y2="100" stroke="gray" stroke-width="1" />
+
+  <!-- Grouping the car elements -->
+  <g id="carGroup">
+    <!-- Car -->
+    <rect x="30" y="70" width="40" height="20" fill="green" id="car" />
+
+    <!-- Wheels of the car -->
+    <circle cx="40" cy="90" r="5" fill="none" stroke="black" />
+    <circle cx="60" cy="90" r="5" fill="none" stroke="black" />
+
+    <!-- Polygon -->
+    <polygon points="70,70 90,80 70,90" fill="yellow" />
+  </g>
+  <!-- Animation for the car group -->
+  <animateTransform
+    attributeName="transform"
+    attributeType="XML"
+    type="translate"
+    from="0 0"
+    to="300 0"
+    dur="2s"
+    begin="1s"
+    fill="freeze"
+    id="carAnim"
+    calcMode="spline"
+    keyTimes="0;1"
+    keySplines="0.25 0.1 0.25 1"
+    xlink:href="#carGroup"
+  />
+
+  <!-- Traffic light -->
+  <circle cx="380" cy="40" r="10" fill="red" id="trafficLight">
+    <animate
+      attributeName="fill"
+      from="red"
+      to="green"
+      dur="0.0001s"
+      begin="carAnim.begin"
+      fill="freeze"
+    />
+    <animate
+      attributeName="fill"
+      from="green"
+      to="red"
+      dur="0.0001s"
+      begin="carAnim.end"
+      fill="freeze"
+    />
+  </circle>
+</svg>
